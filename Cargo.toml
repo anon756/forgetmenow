@@ -1,0 +1,31 @@
+[package]
+name = "caboose_index"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "similarity_bench"
+
+[[bin]]
+name = "forget_bench"
+
+[[bin]]
+name = "serialize"
+
+[dependencies]
+numpy = "0.17.2"
+sprs = "0.11"
+num_cpus = "1.15.0"
+rayon = "1.6.1"
+ndarray-npy = "0.8.1"
+average = "0.13.1"
+indicatif = "0.17.2"
+serde = { version = "1.0", features = ["derive"] }
+bincode = "1.3.3"
+core_affinity = "0.7.6"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+opt-level = 3
